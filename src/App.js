@@ -13,11 +13,14 @@ const App = () => {
   const [courseGoals, setCourseGoals] = useState(course);
 
   const addGoalHandler = (enteredText) => {
-    setCourseGoals((prevGoals) => {
-      const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
-      return updatedGoals;
-    });
+    // setCourseGoals((prevGoals) => {
+    //   const updatedGoals = [...prevGoals];
+    //   updatedGoals.push({ text: enteredText, id: Math.random().toString() });
+    //   return updatedGoals;
+    // });
+
+    let enteredObj = {text:enteredText, id: Math.random().toString()}
+    setCourseGoals(prevState => {return [...prevState, enteredObj] })
   };
 
   const deleteItemHandler = (goalId) => {
